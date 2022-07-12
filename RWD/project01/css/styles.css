@@ -1,0 +1,134 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    color: #fff;
+    background-color: #333;
+    background-image: url('https://images.pexels.com/photos/6811333/pexels-photo-6811333.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+  
+  .wrapper {
+    width: fit-content;
+    margin: 20px auto;
+    padding: 10px;
+  }
+  
+  fieldset {
+    width: 75%;
+    margin: 20px auto;
+    padding: 30px;
+    font-size: 18px;
+    background-color: rgba(60, 75, 35, 0.95)
+  }
+  
+  h1 {
+    font-size: 40px;
+    text-shadow: 2px 2px rgb(60, 88, 25);
+  }
+  
+  h1, p {
+    text-align: center;
+    margin: 20px auto;
+    max-width: 400px;
+  }
+  
+  .bio {
+    margin: 50px 0;
+  }
+  
+  a {
+    color: #ddd;
+  }
+  
+  a:hover {
+    color: #333;
+  }
+  
+  a:visited {
+    color: grey;
+  }
+  
+  input, 
+  textarea, 
+  select {
+    width: 100%;
+    background-color: rgba(10, 25, 10, .8);
+    border: 1px solid black;
+    color: #ddd;
+  }
+  
+  label {
+    display: block;
+    margin: 5px 0;
+  }
+  
+  .top {
+    margin-top: 10px;
+  }
+  
+  .heading {
+    margin: 10px 0;
+  }
+  
+  .activity {
+    width: unset;
+    margin: 0 10px 0 0;
+    vertical-align: middle;
+  }
+  
+  .activity-title {
+    margin: 40px auto 10px;
+    font-weight: normal;
+  }
+  
+  input, textarea {
+    margin: 10px 0;
+  }
+  
+  ::placeholder {
+    color: #999;
+  }
+  select {
+    margin: 10px auto;
+    height: 2.5em;
+    color: #999;
+  }
+  
+  option {
+    color: #ddd;
+  }
+  
+  input[type="submit"] {
+    display: block;
+    min-width: 300px;
+    width: 20vw;
+    height: 35px;
+    margin: 20px auto;
+    font-size: 20px;
+  }
+  
+  .box {
+    display: inline-block;
+    width: 5%;
+    margin-right: 10px;
+  }
+  .terms {
+    display: inline-block;
+    margin: 0 5px 0 0;
+    width: 95%;
+    vertical-align: middle;
+    font-size: 16px;
+  }
+  
+  textarea {
+    display: block;
+    margin: 20px 0;
+  }

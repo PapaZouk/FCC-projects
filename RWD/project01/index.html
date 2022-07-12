@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=width-device, initial-scale=1.0">
+    <title>Survey Form</title>
+    <link rel="stylesheet" href="./css/styles.css">
+  </head>
+  <body>
+    <div class="wrapper">
+      <h1 id="title">Diet Survey Form</h1>
+      <p id="description">Please take a minute to fill this diet survey form to match our products for your diet.</p>
+
+      <!-- INTERVIEW FORM -->
+      <fieldset>
+
+            <form id="survey-form" action="https://register-demo.freecodecamp.org">
+
+          <!-- PERSONAL INFO -->
+              <label id="name-label" class="top">Name: <input id="name" type="text" name="name" required placeholder="Enter your name"></label>
+              <label id="email-label">Email: <input id="email" type="email" name="email" required placeholder="Enter you email"></label>
+              <label id="number-label">Age (years): <input id="number" type="number" name="age" required min="12" max="99" placeholder="Enter you age"></label>
+
+            <!-- DROPDOWN -->
+            <label>How much time do you spend by computer?
+              <select id="dropdown" name="hours">
+                <option value="">(select one)</option>
+                <option value="1">up to 1 hour</option>
+                <option value="2">1 - 3 hours</option>
+                <option value="3">3 - 5 hours</option>
+                <option value="4">more than 5 hours</option>
+              </select>
+            </label>
+
+            <!-- PERSON ACTIVITY -->
+            <h4 class="activity-title">Choose how much time do you spend on activity per day:</h4>
+            <label>
+              <input type="radio" name="activity" class="activity" value="1hr"/> less than 1 hour</label>
+            <label>
+              <input type="radio" name="activity" class="activity" value="2hr"/> no more than 2 hours</label>
+            <label>
+              <input type="radio" name="activity" class="activity" value="4hr"/> up to 4 hours</label>
+            <label>
+              <input type="radio" name="activity" class="activity" value="more"/> more than 4 hours</label>
+
+            <!-- PERSON BIO -->
+            <label class="bio">Provide us more information about your health (allergies, heart problems, diseases): <textarea name="bio" rows="5" cols="50" placeholder="Describe your current health conditions..."></textarea>
+            </label>
+
+            <!-- AGREEMENTS -->
+            <label class="terms">
+              <input type="checkbox" name="terms" value="terms" class="box" required> I have read and agree the <a href="terms.html">Terms and Conditions</a> of service.
+            </label>
+            <label class="terms">
+              <input type="checkbox" name="agreement" value="agreement" class="box" required> I agree to recive general emails and product offer from the service.
+            </label>
+
+            <!-- SUBMIT -->
+            <input id="submit" type="submit" value="Submit">
+        </form>
+      </fieldset>
+    </div>
+  </body>
+</html>
