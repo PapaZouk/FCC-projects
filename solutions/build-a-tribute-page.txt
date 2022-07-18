@@ -1,0 +1,73 @@
+** start of undefined **
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A Tribute Page to Aleksander Doba">
+    <title>A Tribute Page to Aleksander Doba</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1 id="title">A Tribute Page to Aleksander Doba</h1>
+    <main id="main">
+        <figure id="img-div"><img id="image" src="https://bi.im-g.pl/im/67/93/19/z26819175IH,Aleksander-Doba.jpg" alt="Aleksander Doba" max-width="900" height="500" /><figcaption id="img-caption">Aleksander Doba. A man who crossed the Atlantic Sea in a kayak.</figcaption></figure>
+        <p id="tribute-info">This is a tribute page to a brave man named <a id="tribute-link" href="https://en.wikipedia.org/wiki/Aleksander_Doba" target="_blank">Aleksander Doba</a></p>
+    </main>
+  </body>
+</html>
+
+** end of undefined **
+
+** start of undefined **
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --main-color: #94E8EA;
+  --main-color2: #70BBE3;
+  --main-color3: #2077A2;
+  --main-color4: #184489;
+  --main-color5: #13294E;
+}
+
+body {
+  font-size: 10px;
+  background-color: #13294E;
+  color: #ddd;
+  font-family: 'Roboto', sans-serif;
+}
+
+a {
+  color: #94E8EA;
+}
+
+a:hover {
+  color: #70BBE3;
+}
+
+h1 {
+  font-size: 2.6rem;
+  text-align: center;
+}
+
+p {
+  font-size: 1.6rem;
+}
+
+img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+** end of undefined **
+
