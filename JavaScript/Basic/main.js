@@ -133,9 +133,190 @@ const recordCollection = {
   }
 };
 
-// Only change code below this line
+// Dodaje atrybuty do obiektu -> musi istnieć numer id aby uzupełnić.
 function updateRecords(records, id, prop, value) {
+  if (prop !== 'tracks' && value !== "") {
+    records[id][prop] = value;
+  } else if (prop === "tracks" && records[id].hasOwnProperty("tracks") === false) {
+    records[id][prop] = [value];
+  } else if (prop === "tracks" && value !== "") {
+    records[id][prop].push(value);
+  } else if (value === "") {
+    delete records[id][prop];
+  }
   return records;
 }
 
+
 updateRecords(recordCollection, 5439, 'artist', 'ABBA');
+
+console.log(recordCollection)
+
+updateRecords(recordCollection, 2468, 'tracks', 'Hope so')
+
+console.log(recordCollection)
+
+updateRecords(recordCollection, 5439, 'tracks', 'Mamma mia');
+
+console.log(recordCollection)
+
+
+// Dodaje nowy numer albumu do obiektu
+function updateNewRecord(records, id) {
+  if(id !== '') {
+    records[id] = [];
+  }
+  return records
+}
+
+updateNewRecord(recordCollection, 1111);
+console.log(recordCollection)
+updateRecords(recordCollection, 1111, 'artist', 'Metalica');
+console.log(recordCollection)
+updateRecords(recordCollection, 1111, 'tracks', 'Nothing else matters')
+console.log(recordCollection)
+
+const myArray = [];
+
+// Only change code below this line
+for(let i = 1; i <= 9; i += 2) {
+  myArray.push(i);
+}
+
+console.log(myArray)
+
+// Funkcja iteruje po subtablicach i mnoży je przez siebie, zwracając wynik do zmiennej product.
+function multiplyAll(arr) {
+  let product = 1;
+  // Only change code below this line
+for(let i = 0; i < arr.length; i++) {
+  for(let j = 0; j < arr[i].length; j++) {
+    product *= arr[i][j];
+  }
+}
+  // Only change code above this line
+  return product;
+}
+
+console.log(multiplyAll([[1, 2], [3, 4], [5, 6, 7]]));
+
+/* Zastępowanie pętli rekurencją */
+
+function multiply2(arr, n) {  // Funkcja mnoży kolejne elementy tablicy przez siebie w zależności od podania liczby 'n' dla której będzie wykonana ilość mnożenia.
+  if (n <= 0) {
+    return 1;
+  } else {
+    return multiply2(arr, n - 1) * arr[n - 1];
+  }
+}
+const arr2 = [2, 5, 6];
+// console.log(multiply2(arr2, 2))
+
+/* ===========================================
+/               REKURENCJA
+/  =========================================== */
+
+// Rekurencyjne wywołanie funkcji w funkcji
+
+let string = 'Kiedy byłem małym chłopcem hej, zawsze chciałem gładko golić się';
+
+function longestWordRecursive(str) {
+  str = str.split(' ');
+  if (str.length === 1) {
+    return [str[0], str[0].length];
+  }
+  if (str[0].length >= str[1].length) {
+    str.splice(1, 1);
+    return longestWordRecursive(str.join(' '))
+  }
+  if (str[0].length <= str[1].length) {
+    return longestWordRecursive(str.slice(1, str.length).join(' '))
+  }
+  return str.length;
+}
+
+console.log(longestWordRecursive(string));
+
+// Funkcja rekurencyjna, która zwraca sumę pierwszego n elementów tablicy 'arr'.
+function sum(arr, n) {
+  if(n <= 0) {
+    return 0;
+  } else {
+    return sum(arr, n - 1) + arr[n - 1];
+  }
+}
+const arrToSum = [3, 5, 7];
+console.log(sum(arrToSum, 2));
+console.log('=====')
+console.log(arrToSum[2-1] + 1)
+
+// Profile Lookup
+/*
+1. The function should check if name is an actual contact's firstName and the given property (prop) is a property of that contact.
+
+2. If both are true, then return the "value" of that property.
+
+3. If name does not correspond to any contacts then return the string No such contact.
+
+4. If prop does not correspond to any valid properties of a contact found to match name then return the string No such property.
+*/
+
+const contacts = [
+  {
+    firstName: "Akira",
+    lastName: "Laine",
+    number: "0543236543",
+    likes: ["Pizza", "Coding", "Brownie Points"],
+  },
+  {
+    firstName: "Harry",
+    lastName: "Potter",
+    number: "0994372684",
+    likes: ["Hogwarts", "Magic", "Hagrid"],
+  },
+  {
+    firstName: "Sherlock",
+    lastName: "Holmes",
+    number: "0487345643",
+    likes: ["Intriguing Cases", "Violin"],
+  },
+  {
+    firstName: "Kristian",
+    lastName: "Vos",
+    number: "unknown",
+    likes: ["JavaScript", "Gaming", "Foxes"],
+  },
+];
+
+
+/* PROGRAM SPRAWDZA CZY LISTA ZAWIERA DANY ATRYBUT 'NAME' ORAZ WŁAŚCIWOŚĆ 'PROP'.
+JEŚLI IMIĘ I WŁAŚCIWOŚĆ ZNAJDUJĄ SIĘ NA LIŚCIE, ZWRACA WARTOŚĆ WARTOŚĆ WŁAŚCIWOŚCI.
+JEŚLI IMIĘ SIĘ ZNAJDUJE NA LIŚCIE, ALE WŁAŚCIWOŚĆ NIE - ZWRACA INFORMACJE O BRAKU WŁAŚCIWOŚCI.
+JEŚLI NIE ZNAJDZIE IMIENIA NA LIŚCIE, ZWRACA INFORMACJĘ O BRAKU KONTAKTU NA LIŚCIE */
+
+function lookUpProfile(name, prop) {
+  const arr = contacts;
+  let item = [];
+
+  for(let i = 0; i < arr.length; i++) {
+    if(arr[i].firstName == name && arr[i].hasOwnProperty(prop)) {
+      console.log(arr[i][prop])
+      item = arr[i];
+      return arr[i][prop];
+    } else if (arr[i].firstName == name && arr[i].hasOwnProperty(prop) == false) {
+      console.log('No such property');
+      item = arr[i];
+      return 'No such property';
+    }
+  }
+  return 'No such contact';
+}
+
+console.log('=================')
+lookUpProfile("Akira", "likes");
+lookUpProfile("Harry", "lastName");
+lookUpProfile("Harry", "hates");
+lookUpProfile("Harry", "likes");
+lookUpProfile("Sherlock", "lastName")
+lookUpProfile("Akira", "address")
+lookUpProfile("Alan", "likes");
