@@ -297,7 +297,7 @@ JEŚLI NIE ZNAJDZIE IMIENIA NA LIŚCIE, ZWRACA INFORMACJĘ O BRAKU KONTAKTU NA L
 function lookUpProfile(name, prop) {
   const arr = contacts;
   let item = [];
-
+  
   for(let i = 0; i < arr.length; i++) {
     if(arr[i].firstName == name && arr[i].hasOwnProperty(prop)) {
       console.log(arr[i][prop])
@@ -320,3 +320,114 @@ lookUpProfile("Harry", "likes");
 lookUpProfile("Sherlock", "lastName")
 lookUpProfile("Akira", "address")
 lookUpProfile("Alan", "likes");
+
+/* ===========================================
+/         GENEROWANIE LOSOWEGO NUMERU
+/  =========================================== */
+
+// Metoda 'Math.random' przyjmuje losowe wartości z zakresu od 0 (włącznie) do 1 (wyłącznie).
+
+function getRandomNum() {
+  return Math.random();
+}
+
+console.log(getRandomNum());
+
+// Metoda 'Math.floor' zaokrągla wynik działania w dół.
+function getRandomWholeNum() {
+  return Math.floor(Math.random() * 10);
+}
+
+console.log(getRandomWholeNum());
+
+// Przyjmowanie wartości min i max dla 'Math.random'.
+function getRandomNum2(numMin, numMax) {
+  return Math.random() * (numMax - numMin) + numMin;
+}
+
+console.log(getRandomNum2(2, 4));
+
+function getRandomNum3(min, max) {
+  return Math.floor(Math.random() * (max - min +1) + min);
+}
+
+console.log(getRandomNum3(5, 9));
+
+
+/* ===========================================
+/       Stosowanie funkcji  parseInt();
+/  =========================================== */
+
+console.log(`=================`)
+console.log(`%cStosowanie "parseInt()"`, 'color: lime; font-size: 18px; text-decoration: underline;')
+
+// Funkcja zamienia literał liczbowy na string.
+function convertToInt(str) {
+  return parseInt(str);
+}
+
+console.log(convertToInt('007'));
+console.log(convertToInt('055102'))
+
+/* ===========================================
+/   Stosowanie operatora trójskładnikowego;
+/  =========================================== */
+
+console.log(`=================`)
+console.log(`%cStosowanie operatora trójskładnikowego`, 'color: lime; font-size: 18px; text-decoration: underline;')
+
+function checkIfEqual(a, b) {
+  return a == b ? console.log(`Liczba ${a} jest równa liczbnie ${b}`) : console.log(`Liczba ${a} nie jest równa liczbie ${b}`);
+}
+
+checkIfEqual(5, 5);
+
+/* ===========================================
+/  Stosowanie operatora trójskładnikowego, wielowarunkowego (if else...);
+/  =========================================== */
+
+console.log(`=================`)
+console.log(`%cStosowanie operatora trójskładnikowego, wielowarunkowego (if else...)`, 'color: lime; font-size: 18px; text-decoration: underline;')
+
+function checkIfBigger(a, b) {
+  return (a > b) ? `${a} jest większe od ${b}`
+  : (a === b) ? `${a} jest równe ${b}`
+  : `${b} jest większe.`
+}
+
+console.log(checkIfBigger(5, 10))
+
+/* ===========================================
+/        ZADANIE Z FUNKCJĄ REKURENCYJNĄ
+/  =========================================== */
+
+
+// Funkcja przyjmuje liczbę dla parametru 'n' i za pomocą funkcji rekurencyjnej zwraca n liczb w kolejności malejącej aż do 1 w postaci tablicy.
+function countDown(n) {
+  if(n < 1) {
+    return [];
+  } else {
+    const countArray = countDown(n - 1);
+    countArray.unshift(n);
+    return countArray;
+  }
+}
+console.log(countDown(10))
+
+/* ===========================================
+/        ZADANIE Z FUNKCJĄ REKURENCYJNĄ 2
+/  =========================================== */
+// Use Recursion to Create a Range of Numbers
+
+/*
+We have defined a function named rangeOfNumbers with two parameters. The function should return an array of integers which begins with a number represented by the startNum parameter and ends with a number represented by the endNum parameter. The starting number will always be less than or equal to the ending number. Your function must use recursion by calling itself and not use loops of any kind. It should also work for cases where both startNum and endNum are the same.
+*/
+
+//Funkcja przyjmuje dla dwóch parametrów liczbę początkową i końcową, a następnie zwraca tablicę z liczbami z zakresu pomiędzy tymi parametrami (włącznie). Jeśli parametr początkowy i końcowy jest identyczny, funkcja zwraca liczbę początkową jako tablicę.
+function rangeOfNumbers(startNum, endNum) {
+  return startNum === endNum
+  ? [startNum]
+  : rangeOfNumbers(startNum, endNum - 1).concat(endNum);
+}
+
+console.log(rangeOfNumbers(6, 9))
